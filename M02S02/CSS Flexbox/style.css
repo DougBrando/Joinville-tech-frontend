@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #ccc;
+    padding: 5px;
+    box-shadow: 0 0 5px #00000021;
+    display: flex;
+    flex-direction: column;
+}
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+tr {
+    display: flex;
+    width: 100%;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    transition: .5s all;
+    flex: 1;
+    min-width: 100px;
+        &:hover{
+            background-color: rgba(250,250,250,0.5);
