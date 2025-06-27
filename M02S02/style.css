@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #ccc;
+  padding: 5px;
+  box-shadow: 0 0 5px #00000021;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  transition: .5s all;
+   &:hover{
+    background-color: rgba(250,250,250,0.5);
+   }
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
