@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Celulares</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  </style>
+</head>
+<body>
+  <main>
+    <form action="" method="POST" aria-label="Formulário de cadastro de celulares">
+      <fieldset>
+        <legend>Cadastro de Celular</legend>
+        <section class="grid">
+          <label for="cars">Marca</label>
+          <select name="marca" id="cars" required>
+            <option value="">Selecione</option>
+            <option value="samsung">Samsung</option>
+            <option value="iphone">iPhone</option>
+            <option value="motorola">Motorola</option>
+            <option value="lg">LG</option>
+          </select>
+
+          <label for="modelo">Modelo</label>
+          <input type="text" name="modelo" id="modelo" placeholder="Modelo" required>
+
+          <label for="cor">Cor</label>
+          <input type="text" name="cor" id="cor" placeholder="Cor" required>
+
+          <label for="valor">Valor</label>
+          <input type="number" name="valor" id="valor" placeholder="Valor" required>
+        </section>
+        <section>
+          <input type="radio" name="condicao" value="novo" id="op1" required>
+          <label for="op1">Novo</label>
+          <input type="radio" name="condicao" value="usado" id="op2">
+          <label for="op2">Usado</label>
+        </section>
+        <section class="field">
+          <label for="infos">Demais informações</label>
+          <textarea name="infos" id="infos" placeholder="Demais informações"></textarea>
+        </section>
+        <section class="btns">
+          <button type="submit">Salvar</button>
+          <button type="button" onclick="window.history.back()">Voltar</button>
+        </section>
+      </fieldset>
+    </form>
+  </main>
+
+</body>
+</html>
