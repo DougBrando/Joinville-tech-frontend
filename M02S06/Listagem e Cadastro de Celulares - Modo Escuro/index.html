@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Celulares</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Estilos do Tema Escuro */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode h1 {
+            color: #bb86fc;
+        }
+
+        body.dark-mode .table-container {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-mode caption {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode th {
+            background-color: #2c2c2c;
+            color: #b0b0b0;
+            border-bottom-color: #444;
+        }
+
+        body.dark-mode td {
+            border-bottom-color: #444;
+        }
+
+        body.dark-mode tbody tr:hover {
+            background-color: #2c2c2c;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #4CAF50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        caption {
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+
+        th,
+        td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            color: #6c757d;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: #f0f2f5;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-edit {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+        .button-group {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        #btnCadastrar,
+        #btnToggleTheme {
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #btnCadastrar {
+            background-color: #4CAF50;
+        }
+
+        #btnCadastrar:hover {
+            background-color: #43a047;
+        }
+
+        #btnToggleTheme {
+            background-color: #6c757d;
+        }
+
+        #btnToggleTheme:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Listagem de Celulares</h1>
+    <div class="table-container">
+        <table>
+            <caption>Celulares Cadastrados</caption>
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Cor</th>
+                    <th>Valor</th>
+                    <th>Estado</th>
+                    <th>Demais Informações</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="lista-celulares">
+                </tbody>
+        </table>
+    </div>
+    <div class="button-group">
+        <button id="btnToggleTheme">Tema Escuro</button>
+        <button id="btnCadastrar">Cadastrar</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const tbody = document.getElementById('lista-celulares');
+            const btnCadastrar = document.getElementById('btnCadastrar');
+            const btnToggleTheme = document.getElementById('btnToggleTheme');
+
+            function applySavedTheme() {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    body.classList.add('dark-mode');
+                    btnToggleTheme.textContent = 'Tema Claro';
+                } else {
+                    body.classList.remove('dark-mode');
+                    btnToggleTheme.textContent = 'Tema Escuro';
+                }
+            }
+
+            function carregarCelulares() {
+                tbody.innerHTML = '';
+                const celulares = JSON.parse(localStorage.getItem('celulares')) || [];
+
+                celulares.forEach((celular, index) => {
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td>${celular.marca}</td>
+                        <td>${celular.modelo}</td>
+                        <td>${celular.cor}</td>
+                        <td>R$ ${parseFloat(celular.valor).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                        <td>${celular.condicao}</td>
+                        <td>${celular.infos}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-edit" data-index="${index}">Alterar</button>
+                                <button class="btn-delete" data-index="${index}">Excluir</button>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                document.querySelectorAll('.btn-delete').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const index = event.target.dataset.index;
+                        excluirCelular(index);
+                    });
+                });
+
+                document.querySelectorAll('.btn-edit').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const index = event.target.dataset.index;
+                        alterarCelular(index);
+                    });
+                });
+            }
+
+            function excluirCelular(index) {
+                let celulares = JSON.parse(localStorage.getItem('celulares')) || [];
+                celulares.splice(index, 1);
+                localStorage.setItem('celulares', JSON.stringify(celulares));
+                carregarCelulares();
+                window.alert('Item excluído com sucesso!');
+            }
+
+            function alterarCelular(index) {
+                sessionStorage.setItem('alterarIndex', index);
+                window.location.href = 'cadastrocelulares.html';
+            }
+
+            btnCadastrar.addEventListener('click', () => {
+                sessionStorage.removeItem('alterarIndex');
+                window.location.href = 'cadastrocelulares.html';
+            });
+
+            btnToggleTheme.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    btnToggleTheme.textContent = 'Tema Claro';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    btnToggleTheme.textContent = 'Tema Escuro';
+                }
+            });
+
+            applySavedTheme();
+            carregarCelulares();
+        });
+    </script>
+</body>
+
+</html>
