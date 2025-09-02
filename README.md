@@ -4,7 +4,9 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-Este repositório contém as soluções para os exercícios semanais do **Módulo 02 (Front-End)** do curso SENAI. O objetivo é aplicar e consolidar conhecimentos em HTML, CSS e JavaScript, desde conceitos básicos de estilização e layout até manipulação do DOM e lógica de programação.
+Este repositório contém as soluções para os exercícios semanais do **Módulo 02 (Front-End)** do curso **FuturoDEV [Joinville] V1**, oferecido pelo **SENAI**. O objetivo é aplicar e consolidar conhecimentos em HTML, CSS e JavaScript, desde conceitos básicos de estilização e layout até manipulação do DOM e lógica de programação.
+
+> **Nota**: Este repositório foi criado por Douglas Graça como parte das atividades do curso, servindo como um portfólio educacional para demonstrar a aplicação prática dos conceitos aprendidos.
 
 
 ## 📚 Estrutura do Módulo
@@ -79,3 +81,6 @@ Cada pasta de exercício contém:
 -   `descricao.md`: O enunciado original do problema.
 -   Arquivos de solução (`.html`, `.css`, `.js`): O código desenvolvido para resolver o exercício.
 
+## 🌍 Parceiros Institucionais
+-   **SENAI/SC**: Realização do curso FuturoDEV [Joinville] V1.
+-   **Prefeitura de Joinville**: Apoio institucional ao programa.
