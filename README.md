@@ -67,11 +67,17 @@ Foco na interação com o usuário através da manipulação de elementos da pá
 
 ---
 
-### 🗓️ Semana 06: Projeto Prático
+### 🗓️ Semana 06: Aplicações Práticas e Interativas
 
-Aplicação dos conceitos aprendidos em um projeto mais completo e interativo.
+Aplicação dos conceitos aprendidos em projetos mais completos, envolvendo CRUD e manipulação de estado da interface.
 
+-   **[Cadastro de Celulares II](./M02S06/Cadastro%20de%20Celulares%20II/)** `HTML` `CSS` `JS`
 -   **[Lista de Tarefas II](./M02S06/Lista%20de%20Tarefas%20II/)** `JS`
+-   **[Lista de Tarefas III](./M02S06/Lista%20de%20Tarefas%20III/)** `HTML` `CSS` `JS`
+-   **[Listagem de Celulares II](./M02S06/Listagem%20de%20Celulares%20II/)** `HTML` `CSS` `JS`
+-   **[Listagem de Celulares III](./M02S06/Listagem%20de%20Celulares%20III/)** `HTML` `CSS` `JS`
+-   **[Listagem e Cadastro de Celulares - Modo Escuro](./M02S06/Listagem%20e%20Cadastro%20de%20Celulares%20-%20Modo%20Escuro/)** `HTML` `CSS` `JS`
+
 
 ---
 
