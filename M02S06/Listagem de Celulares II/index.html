@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Celulares</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 550px;
+        }
+
+        form {
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        legend {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 5px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="radio"]:checked {
+            border-color: #4CAF50;
+        }
+
+        input[type="radio"]:checked::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 2rem;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button[type="submit"]:hover:not(:disabled) {
+            background-color: #43a047;
+            transform: translateY(-2px);
+        }
+
+        button[type="submit"]:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button[type="button"] {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        button[type="button"]:hover:not(:disabled) {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form id="celularForm" action="" method="POST" aria-label="Formulário de cadastro de celulares">
+            <fieldset>
+                <legend>📱 Cadastro de Celular</legend>
+                <div class="form-section">
+                    <div class="form-field">
+                        <label for="marca">Marca</label>
+                        <select name="marca" id="marca" required>
+                            <option value="">Selecione</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="iphone">iPhone</option>
+                            <option value="motorola">Motorola</option>
+                            <option value="lg">LG</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" placeholder="Ex: Galaxy S24 Ultra" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="cor">Cor</label>
+                        <input type="text" name="cor" id="cor" placeholder="Ex: Preto Cósmico" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="valor">Valor (R$)</label>
+                        <input type="number" name="valor" id="valor" placeholder="Ex: 5000.00" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <label>Condição</label>
+                    <div class="radio-group">
+                        <label for="op1"><input type="radio" name="condicao" value="novo" id="op1" required> Novo</label>
+                        <label for="op2"><input type="radio" name="condicao" value="usado" id="op2"> Usado</label>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="infos">Demais informações</label>
+                    <textarea name="infos" id="infos" placeholder="Ex: Bateria com 95% de saúde, acompanha caixa original e carregador."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="btnVoltar">Voltar</button>
+                    <button type="submit" id="btnSalvar" disabled>Salvar</button>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+
+    <script>
+        const form = document.getElementById('celularForm');
+        const btnSalvar = document.getElementById('btnSalvar');
+        const btnVoltar = document.getElementById('btnVoltar');
+        const inputs = document.querySelectorAll('#celularForm input, #celularForm select, #celularForm textarea');
+
+        function verificarCampos() {
+            let todosPreenchidos = true;
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    todosPreenchidos = false;
+                }
+            });
+            btnSalvar.disabled = !todosPreenchidos;
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener('input', verificarCampos);
+        });
+
+        document.addEventListener('DOMContentLoaded', verificarCampos);
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const dadosCelular = {
+                marca: document.getElementById('marca').value,
+                modelo: document.getElementById('modelo').value,
+                cor: document.getElementById('cor').value,
+                valor: document.getElementById('valor').value,
+                condicao: document.querySelector('input[name="condicao"]:checked').value,
+                infos: document.getElementById('infos').value
+            };
+
+            const celulares = JSON.parse(localStorage.getItem('celulares')) || [];
+
+            celulares.push(dadosCelular);
+
+            localStorage.setItem('celulares', JSON.stringify(celulares));
+
+            form.reset();
+
+            btnSalvar.disabled = true;
+
+            window.alert('Dados salvos com sucesso!');
+        });
+
+        btnVoltar.addEventListener('click', function() {
+            window.location.href = 'listagem-celulares.html';
+        });
+    </script>
+</body>
+</html>
