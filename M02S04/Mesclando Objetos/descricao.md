@@ -1,16 +1,10 @@
-Neste exercício vamos iterar em uma lista de forma a obter o totalizar de itens vendidos por uma loja.
+Neste terceiro exercício vamos mesclar dois objetos distintos em um único objeto que, ao final, irá conter as propriedades: nome, idade, cidade e estado.
 
-Para isso, considere o seguinte array de itens vendidos:
+Para isso, utilize os objetos dados abaixo.
 
 ```javascript
-const vendas = [
-  { produto: "Notebook", valor: 2500 },
-  { produto: "Monitor", valor: 1200 },
-  { produto: "Teclado", valor: 250 }
-];
+const dadosPessoais = { nome: "Lucas", idade: 30 };
+const endereco = { cidade: "São Paulo", estado: "SP" };
 ```
 
-Utilize o _**forEach()**_ para:
-
-1. Exibir uma mensagem com o nome e o valor de cada item vendido.
-2. Calcular e exibir o total de vendas.
+Dica: utilize o operador **spread**
