@@ -4,7 +4,8 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-Este repositório contém as soluções para os exercícios semanais do **Módulo 02 (Front-End)** do curso. O objetivo é aplicar e consolidar conhecimentos em HTML, CSS e JavaScript, desde conceitos básicos de estilização e layout até manipulação do DOM e lógica de programação.
+Este repositório contém as soluções para os exercícios semanais do **Módulo 02 (Front-End)** do curso SENAI. O objetivo é aplicar e consolidar conhecimentos em HTML, CSS e JavaScript, desde conceitos básicos de estilização e layout até manipulação do DOM e lógica de programação.
+
 
 ## 📚 Estrutura do Módulo
 
